@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://yebssdqmfdah"]
 
-[ext_resource type="Texture2D" uid="uid://dw0gss63cqu2b" path="res://mango2.jpg" id="1_db8uc"]
+[ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://665699118ff5af724a2006631d54bf0b.jpg" id="1_db8uc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_db8uc"]
 friction = 0.88
@@ -12,13 +12,13 @@ albedo_texture = ExtResource("1_db8uc")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lbrrd"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_gq2c6"]
+
 [sub_resource type="PlaneMesh" id="PlaneMesh_2e1q2"]
 size = Vector2(20, 60)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2e1q2"]
-albedo_color = Color(0, 0.81, 0.75600004, 1)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_gq2c6"]
+albedo_color = Color(0, 18.751299, 0, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_db8uc"]
 
@@ -32,9 +32,10 @@ transform = Transform3D(1, 0, 0, 0, 0.7493835, 0.6621363, 0, -0.6621363, 0.74938
 [node name="sphere" type="RigidBody3D" parent="."]
 mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_db8uc")
+gravity_scale = 3.0
 
 [node name="sphere" type="MeshInstance3D" parent="sphere"]
-transform = Transform3D(-0.999191, 0, -0.040219106, 0.031636823, 0.61744785, -0.7859754, 0.0248332, -0.786612, -0.6169483, 0, 0, 0)
+transform = Transform3D(-0.7893608, 5.0030646e-08, -0.03177304, 0.026626585, 0.4310508, -0.6615031, 0.017336404, -0.66203874, -0.43070212, 0, 0, 0)
 mesh = SubResource("SphereMesh_lbrrd")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_db8uc")
@@ -44,27 +45,40 @@ shape = SubResource("SphereShape3D_lbrrd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(20, 0, 0, 0, 0.8660254, -30, 0, 0.5, 51.961525, 0, -1.5, 1.4901161e-08)
+shape = SubResource("BoxShape3D_gq2c6")
+debug_color = Color(0.99897593, 0, 0.139961, 0.41960785)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, -1, 0)
 mesh = SubResource("PlaneMesh_2e1q2")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_2e1q2")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-transform = Transform3D(20, 0, 0, 0, 0.8660254, -30, 0, 0.5, 51.961525, 0, -1.5, 0)
-shape = SubResource("BoxShape3D_gq2c6")
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.27609, 23.231668)
+light_color = Color(0, 0, 0, 1)
 light_energy = 16.0
 omni_range = 104.170135
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(0.7891491, -0.047367185, 0.6123724, 0.4330127, 0.75, -0.5, -0.4355957, 0.6597396, 0.6123724, 0, -2.9952502, 4.3130145)
+transform = Transform3D(0.7192359, -0.15397015, 11.1379385, 0.5412542, 0.73555213, -6.6983094, -0.43559566, 0.6597396, 10.067403, -9.771308, -6.1603227, 9.5908165)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
 shape = SubResource("BoxShape3D_db8uc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_2e1q2")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(12.258824, 0.118935384, 0.48725006, 3.5230227, 0.7420229, -0.6225651, -6.1723905, 0.6597396, 0.6123724, 0, -2.9952502, 4.3130145)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+transform = Transform3D(1, 9.834766e-07, 5.9604645e-08, -5.9604645e-08, 1.0000002, 5.9604645e-08, 0, 5.811453e-06, 1, 0, 0, 0)
+shape = SubResource("BoxShape3D_db8uc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
 mesh = SubResource("BoxMesh_2e1q2")
 skeleton = NodePath("../CollisionShape3D")
