@@ -40,17 +40,17 @@ transform = Transform3D(1.5, 0, 0, 0, 0.09396926, -1.0260603, 0, 0.034202013, 2.
 mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallR" type="MeshInstance3D" parent="flipper"]
-transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, 0.7980133, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, 0.8, 0, 0)
 mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallL" type="MeshInstance3D" parent="flipper"]
-transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, -0.7979313, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, -0.8, 0, 0)
 mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallD" type="MeshInstance3D" parent="flipper"]
-transform = Transform3D(1.5, 0, 0, 0, 0.4698463, -0.06840403, 0, 0.17101006, 0.18793853, 0, -0.55003995, 1.477758)
+transform = Transform3D(1.5, 0, 0, 0, 0.4698463, -0.06840403, 0, 0.17101006, 0.18793853, 0, -0.5, 1.5)
 mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallU" type="MeshInstance3D" parent="flipper"]
-transform = Transform3D(1.5, 0, 0, 0, 0.4698463, -0.06840403, 0, 0.17101006, 0.18793853, 0, 0.5515397, -1.4844738)
+transform = Transform3D(1.5, 0, 0, 0, 0.4698463, -0.06840403, 0, 0.17101006, 0.18793853, 0, 0.5, -1.5)
 mesh = SubResource("BoxMesh_nm0m5")
