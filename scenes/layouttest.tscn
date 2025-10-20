@@ -13,7 +13,8 @@ albedo_color = Color(0.3105, 0.405825, 0.45, 1)
 [node name="layouttest" type="Node3D"]
 
 [node name="Cam" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.7933427, 0.60877526, 0, -0.60877526, 0.7933427, 0, 0.6584711, 1.7183514)
+transform = Transform3D(1, 0, 0, 0, 0.6547408, 0.7558535, 0, -0.7558535, 0.6547408, 0.06333852, 1.045466, 1.6188626)
+fov = 85.0
 
 [node name="decor" type="Node" parent="."]
 
@@ -40,11 +41,11 @@ transform = Transform3D(1.5, 0, 0, 0, 0.09396926, -1.0260603, 0, 0.034202013, 2.
 mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallR" type="MeshInstance3D" parent="flipper"]
-transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, 0.8, 0, 0)
+transform = Transform3D(0.05, 0, 0, 0, 0.4698463, -0.94055516, 0, 0.17101003, 2.5841546, 0.77, -0.07269533, 0.11)
 mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallL" type="MeshInstance3D" parent="flipper"]
-transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, -0.8, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, 0.9899717, 0, 0)
 mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallD" type="MeshInstance3D" parent="flipper"]
@@ -53,4 +54,20 @@ mesh = SubResource("BoxMesh_nm0m5")
 
 [node name="WallU" type="MeshInstance3D" parent="flipper"]
 transform = Transform3D(1.5, 0, 0, 0, 0.4698463, -0.06840403, 0, 0.17101006, 0.18793853, 0, 0.5, -1.5)
+mesh = SubResource("BoxMesh_nm0m5")
+
+[node name="LauncherBoard" type="MeshInstance3D" parent="flipper"]
+transform = Transform3D(0.2, 0, 0, 0, 0.09396926, -1.0260603, 0, 0.034202013, 2.819078, 0.85, 0, 0)
+mesh = SubResource("BoxMesh_nm0m5")
+
+[node name="LauncherTop" type="MeshInstance3D" parent="flipper"]
+transform = Transform3D(0.26415655, -0.031328365, -0.09396926, -0.03484422, 0.46624348, -0.06840403, 0.13786665, 0.17786379, 0.16275953, 0.8876194, 0.5, -1.4156388)
+mesh = SubResource("BoxMesh_nm0m5")
+
+[node name="LauncherTop2" type="MeshInstance3D" parent="flipper"]
+transform = Transform3D(0.0855573, 0.044644244, -0.19086054, -0.037022628, 0.49539226, 0.011164301, 0.28514782, 0.050924752, 0.058716364, 0.99445665, 0.5067997, -1.2693568)
+mesh = SubResource("BoxMesh_nm0m5")
+
+[node name="LAuncherSide" type="MeshInstance3D" parent="flipper"]
+transform = Transform3D(0.1, 0, 0, 0, 0.4698463, -1.0260603, 0, 0.17101006, 2.819078, -0.8, 0, 0)
 mesh = SubResource("BoxMesh_nm0m5")
