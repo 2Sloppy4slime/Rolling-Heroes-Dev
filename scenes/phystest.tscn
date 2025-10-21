@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://yebssdqmfdah"]
+[gd_scene load_steps=12 format=3 uid="uid://yebssdqmfdah"]
 
 [ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://665699118ff5af724a2006631d54bf0b.jpg" id="1_db8uc"]
+[ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_2e1q2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_db8uc"]
 friction = 0.88
@@ -41,6 +42,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_db8uc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sphere"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4567213, 0)
 shape = SubResource("SphereShape3D_lbrrd")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
@@ -82,3 +84,5 @@ shape = SubResource("BoxShape3D_db8uc")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
 mesh = SubResource("BoxMesh_2e1q2")
 skeleton = NodePath("../CollisionShape3D")
+
+[node name="sphere2" parent="." instance=ExtResource("2_2e1q2")]

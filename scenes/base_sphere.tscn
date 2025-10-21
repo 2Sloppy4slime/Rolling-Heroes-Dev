@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://rg8ng4maolo3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mukm2"]
+friction = 0.88
+
+[sub_resource type="SphereMesh" id="SphereMesh_4bfup"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xxtxb"]
+albedo_color = Color(0.6378432, 0.6378432, 0.6378431, 1)
+metallic = 1.0
+metallic_specular = 0.6
+roughness = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_75rr6"]
+radius = 0.5094606
+
+[node name="sphere" type="RigidBody3D"]
+mass = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_mukm2")
+gravity_scale = 3.0
+
+[node name="sphere" type="MeshInstance3D" parent="."]
+transform = Transform3D(-0.09991909, 1.0058284e-08, -0.0040219007, 0.0033704534, 0.05456338, -0.083734564, 0.002194477, -0.08380237, -0.054519232, 0, 0, 0)
+mesh = SubResource("SphereMesh_4bfup")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_xxtxb")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_75rr6")
