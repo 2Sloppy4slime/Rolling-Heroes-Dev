@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://yebssdqmfdah"]
 
-[ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://665699118ff5af724a2006631d54bf0b.jpg" id="1_db8uc"]
+[ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://images/665699118ff5af724a2006631d54bf0b.jpg" id="1_db8uc"]
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_2e1q2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_db8uc"]

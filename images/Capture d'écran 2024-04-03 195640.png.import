@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cj6plibfop07f"
-path.s3tc="res://.godot/imported/Capture d\'écran 2024-04-03 195640.png-d29f47db26e165160d9bf22a1adee829.s3tc.ctex"
+path.s3tc="res://.godot/imported/Capture d\'écran 2024-04-03 195640.png-9806f30ffeee676cd9a7ca99eb75820c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Capture d'écran 2024-04-03 195640.png"
-dest_files=["res://.godot/imported/Capture d\\'écran 2024-04-03 195640.png-d29f47db26e165160d9bf22a1adee829.s3tc.ctex"]
+source_file="res://images/Capture d'écran 2024-04-03 195640.png"
+dest_files=["res://.godot/imported/Capture d\\'écran 2024-04-03 195640.png-9806f30ffeee676cd9a7ca99eb75820c.s3tc.ctex"]
 
 [params]
 

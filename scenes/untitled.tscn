@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvk060luv2o01"]
+
+[ext_resource type="PackedScene" uid="uid://dt1yg00wtgj2i" path="res://Untitled.blend" id="1_vyfgo"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_141yk"]
+size = Vector3(0.67529297, 0.66656494, 4.705841)
+
+[node name="Untitled" instance=ExtResource("1_vyfgo")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.004638672, 0.0008239746, -0.0027618408)
+shape = SubResource("BoxShape3D_141yk")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.2416883)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." index="3"]

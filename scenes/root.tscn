@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://wb1lvxe15t3x"]
 
-[ext_resource type="Texture2D" uid="uid://cj6plibfop07f" path="res://Capture d'écran 2024-04-03 195640.png" id="1_lrqlo"]
-[ext_resource type="Texture2D" uid="uid://4t4a62bru1hr" path="res://occultcowboy.png" id="2_sqa0i"]
-[ext_resource type="Texture2D" uid="uid://bss311mniq44s" path="res://Sprite-0001.png" id="3_jh1ax"]
-[ext_resource type="Texture2D" uid="uid://dw0gss63cqu2b" path="res://mango2.jpg" id="4_sqa0i"]
+[ext_resource type="Texture2D" uid="uid://cj6plibfop07f" path="res://images/Capture d'écran 2024-04-03 195640.png" id="1_lrqlo"]
+[ext_resource type="Texture2D" uid="uid://4t4a62bru1hr" path="res://images/occultcowboy.png" id="2_sqa0i"]
+[ext_resource type="Texture2D" uid="uid://bss311mniq44s" path="res://images/Sprite-0001.png" id="3_jh1ax"]
+[ext_resource type="Texture2D" uid="uid://dw0gss63cqu2b" path="res://images/mango2.jpg" id="4_sqa0i"]
 
 [node name="Root" type="Node3D"]
 
