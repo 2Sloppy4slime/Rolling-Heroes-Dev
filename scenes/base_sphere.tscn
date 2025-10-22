@@ -1,4 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://rg8ng4maolo3"]
+[gd_scene load_steps=6 format=3 uid="uid://rg8ng4maolo3"]
+
+[ext_resource type="Script" uid="uid://c8msfpuh6a5e1" path="res://scripts/base_sphere.gd" id="1_4bfup"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mukm2"]
 friction = 0.88
@@ -18,6 +20,7 @@ radius = 0.5094606
 mass = 1000.0
 physics_material_override = SubResource("PhysicsMaterial_mukm2")
 gravity_scale = 3.0
+script = ExtResource("1_4bfup")
 
 [node name="sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(-0.09991909, 1.0058284e-08, -0.0040219007, 0.0033704534, 0.05456338, -0.083734564, 0.002194477, -0.08380237, -0.054519232, 0, 0, 0)

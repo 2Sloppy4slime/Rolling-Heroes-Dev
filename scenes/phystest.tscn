@@ -12,6 +12,7 @@ friction = 0.88
 albedo_texture = ExtResource("1_db8uc")
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lbrrd"]
+radius = 0.43111682
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gq2c6"]
 
@@ -42,7 +43,7 @@ skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_db8uc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="sphere"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4567213, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016305119, 0)
 shape = SubResource("SphereShape3D_lbrrd")
 
 [node name="sphere2" parent="sphere" instance=ExtResource("2_2e1q2")]
