@@ -45,6 +45,9 @@ surface_material_override/0 = SubResource("StandardMaterial3D_db8uc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4567213, 0)
 shape = SubResource("SphereShape3D_lbrrd")
 
+[node name="sphere2" parent="sphere" instance=ExtResource("2_2e1q2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71926475, 4.419825, -9.144412)
+
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
