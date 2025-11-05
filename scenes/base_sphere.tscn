@@ -28,6 +28,6 @@ mesh = SubResource("SphereMesh_4bfup")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_xxtxb")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["ball"]]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("SphereShape3D_75rr6")

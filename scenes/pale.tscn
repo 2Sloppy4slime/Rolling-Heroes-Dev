@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=4 uid="uid://bckunabtxdpkq"]
+
+[ext_resource type="Script" uid="uid://c2mrixc6w4bm6" path="res://scripts/pale.gd" id="1_ne122"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ysr7u"]
+resource_name = "Material"
+cull_mode = 2
+albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_juu8f"]
+_surfaces = [{
+"aabb": AABB(-0.33865565, -0.33865565, -2.3537471, 0.6773113, 0.6773113, 4.7074943),
+"format": 34896613377,
+"index_count": 60,
+"index_data": PackedByteArray("CAABAAkAAwAJAAEACAAEAAEABwADAAEABwABAAQACgADAAcAAwAKAAkACwAHAAQACwAEAAgACgAHAAsABgALAAgACgACAAkABQAKAAsACgAFAAIABQALAAYAAAAJAAIABQAAAAIAAAAIAAkABQAGAAAABgAIAAAA"),
+"lods": [0.16153878, PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA")],
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("lKf//wAAAAAAAP////8AAGpY//8AAAAAAAAAAP//AAD///////8AAGpYAAAAAAAAlKcAAAAAAAD//wAA//8AAP/////ZWQAAAAD//9lZAAAAAAAA2VkAAP//AADZWQAA")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_130ib"]
+resource_name = "Untitled_Cube"
+_surfaces = [{
+"aabb": AABB(-0.33865565, -0.33865565, -2.3537471, 0.6773113, 0.6773113, 4.7074943),
+"attribute_data": PackedByteArray("/5//f//f/z//3/9//5//P/9f/z//nwAA/5//P/9fAAD/H/9//1//P/9f/3//H/8//1//f/+f/z//n/9//1//P/9f/7//n/9//5//v/9f/3//X////5//v/+f////X/+//5+Jaf/fiWn/X3XW/5911v8fiWn/X4lp/1+Jaf+fiWn/n4lp/1+Jaf+fddb/X3XW"),
+"format": 34896613399,
+"index_count": 60,
+"index_data": PackedByteArray("GAABABkAGAADAAEAAAAYABkAAAAZAAIABAAFAAYABAAHAAUAGgAVABsAGgAXABUAHAAJAB0AHAALAAkACAAcAB0ACAAdAAoAHgANAB8AHgAPAA0AEAARABIAEAATABEADAAgAA4ADAAhACAAFAAiABYAFAAjACIA"),
+"lods": [0.16153878, PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA")],
+"material": SubResource("StandardMaterial3D_ysr7u"),
+"name": "Material",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("lKf//wAA//8AAP///////2pY//8AAP///////////////wAA////vwAA//////+//////////78AAAAA////v2pYAAAAAP+///8AAP///7+UpwAAAAD/vwAAAAD///+/lKcAAAAAttj///////9U1ZSn//8AALbY//8AAP//VNVqWAAAAAD//5Sn//8AAP//alj//wAA//+UpwAAAAD//wAAAAD//1TValj//wAAttgAAP////9U1WpYAAAAALbY/////9lZ//8AAP//2Vn//wAAAADZWbbYAAD//9lZttgAAAAA2Vn/v///AADZWf+///8AANlZVNX/////2VlU1f/////ZWbbY//8AANlZttgAAP//2VlU1QAAAADZWVTV/3//v/9//7//f/+//3//v/////////////////////8AAP9/AAD/fwAA/38AAP9/nyyfLKoqqiqfLJ8sqiqqKv+//7//v/+//7//v/+//79U1VTVX9Nf01TVVNVf01/T/3//v/9//79f01/TX9Nf0wAA/38AAP9/qiqqKqoqqiqfLJ8snyyfLFTVVNVU1VTV")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_juu8f")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qyowl"]
+size = Vector3(0.67529297, 0.66656494, 4.705841)
+
+[node name="Pale" type="Node3D"]
+script = ExtResource("1_ne122")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.305)
+
+[node name="Cube" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, 0, 0, 0)
+mesh = SubResource("ArrayMesh_130ib")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+transform = Transform3D(0.13, 0, 0, 0, 0.13, 0, 0, 0, 0.13, -0.004638672, 0.0008239746, -0.0027618408)
+shape = SubResource("BoxShape3D_qyowl")
+
+[node name="HingeJoint3D" type="HingeJoint3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.30911797)
+node_a = NodePath("..")
+angular_limit/enable = true

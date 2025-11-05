@@ -15,6 +15,11 @@ run/main_scene="res://scenes/phystest.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://images/icon.svg"
 
+[global_group]
+
+ball="is a playable ball"
+enemy="bad guys :("
+
 [input]
 
 accept_or_right_flipper={
