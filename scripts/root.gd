@@ -93,11 +93,17 @@ func ball_upgrade(id : int) : #ball upgrades are id 0-50
 			print("no upgrades with this id")
 		
 func pale_upgrade(id : int) :
-	pass
-
+	match id :
+		_:
+			print("no upgrades with this id")
 func sticker_upgrade(id: int):
-	pass
-
+	match id :
+		_:
+			print("no upgrades with this id")
+func set_nudge(id:int) :
+	match id :
+		_:
+			print("no upgrades with this id")
 func check_death():
 	if points < 0 or lives <= 0:
 		return true
