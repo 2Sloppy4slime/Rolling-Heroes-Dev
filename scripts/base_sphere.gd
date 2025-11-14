@@ -8,6 +8,9 @@ extends RigidBody3D
 @export var launch_speed = 20
 @export var Canbreakshield = false
 @export var Ismultiball = false
+@export var Nudgeready = false
+@export var Pointstochargenudge = 100
+@export var Currentpointstonudge = 0
 @export var next_bounce_functions = []
 @export var next_bounce_condition_id = 0
 func _input(event):
@@ -53,4 +56,6 @@ func nudge_func():
 		1: #multiball : splits into 3 : 1 nudged (base) 1 stopped and 1 random pushed
 			pass
 		2: #shieldbreaker : breaks any shield on the field
+			pass
+		_:
 			pass
