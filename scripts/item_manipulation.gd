@@ -1,4 +1,21 @@
 extends Node
+var json_path = "res://data/items.json"
+var items = [] #list of all items
+
+func _ready():
+	var file = FileAccess.open(json_path,FileAccess.READ)
+	if file:
+		var content = file.get_as_text()
+		print(content)
+		items = JSON.parse_string(content)
+		if items == null :
+			print("failed to parse text js JSON")
+		file.close()
+		print(items[0].name)
+	else:
+		print("Failed to open file: ", json_path)
+	
+	
 #json 			: name , type, upgrade id, price, rarity, chance, description, image
 # name 			: string 	(name of the item)
 # type 			: string 	("ball" | "pale" | "sticker" | "nudge")
@@ -8,7 +25,7 @@ extends Node
 # chance_by_pool: {pool:int}(chance in % for it to be selected on get, sorted by pool, default value 30%)
 # description 	: string 	(description for the card) [MAKE AN AUTODESCRIPTOR]
 # image 		: PATH 		(link to image file)
-var items = [] #list of all items
+
 
 #Function : returns all items who match the parameters (PARAMETERS ARE ADDITIVE, A∩B NOT A∪B)
 func get_items_in(params : Dictionary): #params{} "rarity" : int | "pool" : string | "type" : string

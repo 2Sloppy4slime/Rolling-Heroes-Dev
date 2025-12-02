@@ -1,0 +1,22 @@
+[
+    { 
+"name"		:	"zebzeb",
+"type"		: 	"ball",
+"upgrade_id"	: 	0,
+"price" 		: 	1000,
+"rarity" 		: 	0,
+"chance_by_pool"	: 	{"base":60},
+"description" 	: 	"a base item",
+"image" 		: 	"res://images/occultcowboy.png"
+},
+{ 
+"name"		:	"zeb2zeb2",
+"type"		: 	"ball",
+"upgrade_id"	: 	1,
+"price" 		: 	1000,
+"rarity" 		: 	0,
+"chance_by_pool"	: 	{"base":60},
+"description" 	: 	"a base item",
+"image" 		: 	"res://images/occultcowboy.png"
+}
+]
