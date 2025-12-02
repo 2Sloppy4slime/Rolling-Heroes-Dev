@@ -12,64 +12,18 @@ var ball
 @export var difficulty = 0
 var sticker_spots
 
-var Isinbossroom = false
-var Isinshop = false
-var Shoulddie = false
-
-var Ispaused = false
-
-var Ismainmenu = false
-var Ischoosingcharacter = false
-var Isparametering = false
+var menutype = "main"
+var roomtype = "normal"
+var paused = false
 
 func set_ball() : 
 	var temp = get_tree().get_nodes_in_group("ball")
 	for i in temp :
-		if i.Ismultiball :
+		if !i.Ismultiball :
 			ball = i
 
 func get_sticker_spots_from_level():
 	pass
-	
-func change_state(state) :
-	match state :
-		"Isinbossroom" :
-			Isinshop = false
-			Isinbossroom = true
-		"Isinshop" :
-			Isinshop = true
-			Isinbossroom = false
-			
-		"Shoulddie" :
-			Shoulddie = true
-			Isinshop = false
-			Isinbossroom = false
-			Ispaused = false
-
-		"Ismainmenu" :
-			Ismainmenu = true
-			Ischoosingcharacter = false
-			Isparametering = false
-			Shoulddie = false
-			
-		"Ischoosingcharacter" :
-			Ischoosingcharacter = true
-			Ismainmenu = false
-			Isparametering = false
-			
-		"Isparametering" :
-			Isparametering = true
-			Ischoosingcharacter = false
-			Ismainmenu = false
-		_:
-			Ismainmenu = true
-			Ischoosingcharacter = false
-			Ispaused = false
-			Shoulddie = false
-			Isinshop = false
-			Isinbossroom = false
-			Isparametering = false
-
 
 func ball_upgrade(id : int) : #ball upgrades are id 0-50 
 	set_ball()
