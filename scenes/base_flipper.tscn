@@ -1,7 +1,8 @@
-[gd_scene load_steps=33 format=4 uid="uid://d4m22gwseevlt"]
+[gd_scene load_steps=38 format=4 uid="uid://d4m22gwseevlt"]
 
 [ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://images/665699118ff5af724a2006631d54bf0b.jpg" id="1_xwrnc"]
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_wflre"]
+[ext_resource type="Script" uid="uid://1konv62i3rbx" path="res://scenes/rigid_body_3d.gd" id="3_wflre"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yemdt"]
 friction = 0.88
@@ -123,6 +124,21 @@ size = Vector3(0.11640167, 0.1362381, 0.8318721)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw7vg"]
 bounce = 1.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1pmx4"]
+friction = 0.0
+bounce = 1.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_x8kkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kl3nh"]
+albedo_color = Color(0.6378432, 0.6378432, 0.6378431, 1)
+metallic = 1.0
+metallic_specular = 0.6
+roughness = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tv6xk"]
+radius = 0.5094606
 
 [node name="Node3D" type="Node3D"]
 
@@ -341,3 +357,18 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/PaleD"]
 transform = Transform3D(-0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, -0.5, 0.44242564, 0.17888272, 1.8355117)
 shape = SubResource("BoxShape3D_n1vkw")
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8874913, -1.979964)
+physics_material_override = SubResource("PhysicsMaterial_1pmx4")
+script = ExtResource("3_wflre")
+
+[node name="sphere" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)
+mesh = SubResource("SphereMesh_x8kkn")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kl3nh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" groups=["ball"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_tv6xk")

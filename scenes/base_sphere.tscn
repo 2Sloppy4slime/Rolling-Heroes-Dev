@@ -4,7 +4,7 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4bfup"]
 friction = 0.0
-bounce = 1.0
+bounce = 0.5
 
 [sub_resource type="SphereMesh" id="SphereMesh_4bfup"]
 
@@ -23,7 +23,7 @@ script = ExtResource("1_4bfup")
 bounce_factor = 1.0
 
 [node name="sphere" type="MeshInstance3D" parent="."]
-transform = Transform3D(-0.09991909, 1.0058284e-08, -0.0040219007, 0.0033704534, 0.05456338, -0.083734564, 0.002194477, -0.08380237, -0.054519232, 0, 0, 0)
+transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)
 mesh = SubResource("SphereMesh_4bfup")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_xxtxb")
