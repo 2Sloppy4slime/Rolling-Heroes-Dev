@@ -14,13 +14,12 @@ albedo_texture = ExtResource("1_xwrnc")
 [sub_resource type="SphereShape3D" id="SphereShape3D_nmyrp"]
 radius = 0.43111682
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1pmx4"]
-
 [sub_resource type="BoxMesh" id="BoxMesh_x8kkn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_kl3nh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwrnc"]
+friction = 0.0
 bounce = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_wflre"]
@@ -28,12 +27,19 @@ bounce = 0.2
 [sub_resource type="BoxShape3D" id="BoxShape3D_yemdt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xuine"]
+friction = 0.0
 bounce = 0.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_eb3d6"]
+friction = 0.0
 bounce = 0.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nmyrp"]
+friction = 0.0
+bounce = 0.2
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tv6xk"]
+friction = 0.0
 bounce = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_1pmx4"]
@@ -41,12 +47,15 @@ bounce = 0.2
 [sub_resource type="BoxMesh" id="BoxMesh_kl3nh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wflre"]
+friction = 0.0
 bounce = 0.6
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8kkn"]
+friction = 0.0
 bounce = 0.6
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_kl3nh"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tv6xk"]
@@ -58,6 +67,7 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgs3o"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1wn12"]
@@ -117,7 +127,7 @@ bounce = 1.0
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.81294835, 0.5823358, 0, -0.5823358, 0.81294835, 0, 1.9821682, 2.8913946)
+transform = Transform3D(1, 0, 0, 0, 0.5764181, 0.817155, 0, -0.817155, 0.5764181, 0, 2.775447, 2.4982548)
 
 [node name="sphere" type="RigidBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91193813, 0)
@@ -145,15 +155,14 @@ light_energy = 2.0
 omni_range = 104.170135
 
 [node name="sphere2" parent="." instance=ExtResource("2_wflre")]
-transform = Transform3D(0.9998915, 0, 0.0147300465, 0, 1, 0, -0.0147300465, 0, 0.9998915, 0.21816, 0.9295629, -1.9942439)
+transform = Transform3D(0.9998915, 0, 0.0147300465, 0, 1, 0, -0.0147300465, 0, 0.9998915, 0.21816, 0.9318367, -1.9942439)
 gravity_scale = 4.5
 
 [node name="Node3D" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.9396926, -0.34202012, 0, 0.34202012, 0.9396926, 0, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 0.93969244, -0.34202006, 0, 0.34202006, 0.93969244, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
 transform = Transform3D(3, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
-physics_material_override = SubResource("PhysicsMaterial_1pmx4")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
 mesh = SubResource("BoxMesh_x8kkn")
@@ -212,6 +221,7 @@ shape = SubResource("BoxShape3D_yemdt")
 
 [node name="StaticBody3D6" type="StaticBody3D" parent="Node3D"]
 transform = Transform3D(-8.742278e-07, 0, 1, 0, 1, 0, -20, 0, -4.371139e-08, 0.9657572, 0.2, 0.37486017)
+physics_material_override = SubResource("PhysicsMaterial_tv6xk")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D6"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
