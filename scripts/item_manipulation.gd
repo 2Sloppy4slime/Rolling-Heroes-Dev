@@ -13,6 +13,9 @@ func _ready():
 		file.close()
 	else:
 		print("Failed to open file: ", json_path)
+		
+	
+	select_item(get_items_in())
 
 #json 			: name , type, upgrade id, price, rarity, chance, description, image
 # name 			: string 	(name of the item)
@@ -26,58 +29,88 @@ func _ready():
 
 
 #Function : returns all items who match the parameters (PARAMETERS ARE ADDITIVE, A∩B NOT A∪B)
-func get_items_in(params : Dictionary): #params{} "rarity" : int | "pool" : string | "type" : string
-	var list = []
+func get_items_in(itemlist = items,params : Dictionary = {}): #params{} "rarity" : int | "pool" : string | "type" : string
+	var res = []
+	if len(params.keys()) == 0 :
+		print("no params given, return full list")
+		res = itemlist
 	for i in params.keys() :
 		match i :
 			
 			"type":
 				if params["type"] in ["ball","pale","sticker","nudge"]:
-					if list == []:
-						for item in items : #just add
+					if res == []:
+						for item in itemlist : #just add
 							if item.type == params["type"] :
-								list.append(item)
+								res.append(item)
 					else : #filter out
-						for item in list : 
+						for item in res : 
 							if item.type != params["type"] :
-								var removeindex = list.find(item)
-								list.pop_at(removeindex)
+								var removeindex = res.find(item)
+								res.pop_at(removeindex)
 				else : 
 					print("invalid type given")
 					return []
 			"pool":
 				#check pool in pools
 				if true :
-					if list == []:
-							for item in items : #just add
+					if res == []:
+							for item in itemlist : #just add
 								if params["pool"] in item.chance_by_pool.keys() :
-									list.append(item)
+									res.append(item)
 									
 					else : #filter out
-						for item in list : 
+						for item in res : 
 							if params["pool"] not in item.chance_by_pool.keys() :
-								var removeindex = list.find(item)
-								list.pop_at(removeindex)
+								var removeindex = res.find(item)
+								res.pop_at(removeindex)
 				else : 
 					print("invalid pool given")
 					return []
 					
 			"rarity":
 				if params["rarity"] in [0,1,2,3]:
-					if list == []:
-						for item in items : #just add
+					if res == []:
+						for item in itemlist : #just add
 								if item.rarity == params["rarity"] :
-									list.append(item)
+									res.append(item)
 					else : #filter out
-						for item in list :
+						for item in res :
 							if item.rarity != params["rarity"] :
-								var removeindex = list.find(item)
-								list.pop_at(removeindex)
+								var removeindex = res.find(item)
+								res.pop_at(removeindex)
 				else:
 					print("invalid rarity given")
 					return []
 					
 			_:
-				print("no params given, returning whole list")
-				return items
-	return list
+				print("invalid params given, returning whole list")
+				res = itemlist
+	print("returning list of length : " + str(len(res)))
+	return res
+
+func select_item(list : Array, pool = "base") : # on met les pools dedans
+	#faire affecter la luck mais pour l'instant rareté 0->3 [40%, 30%, 20%, 10%]
+	var rarityroll = randi_range(1,100) #[1:40] : rarity = 0 | [41:70] : rarity = 1 | [71:90] : rarity = 2 | [91:100] : rarity = 3
+	var rarity = 0
+	#pas vrm de meilleurs moyen que je connaisse
+	if rarityroll > 40 : 
+		rarity = 1
+		if rarityroll > 70 : 
+			rarity = 2
+			if rarityroll > 90 : 
+				rarity = 3
+
+	var newlist = get_items_in(list ,{"rarity": rarity})
+	if len(newlist) == 0 :
+		print("fallback, item with rarity : " + str(rarity) + " doesn't exist in list, goign back to original list")
+		newlist = list
+	var chosen = false
+	while !chosen :
+		var index = randi_range(0,len(newlist)-1)
+		if newlist[index].chance_by_pool[pool] > randi_range(0,100) :
+			chosen = true
+			print("algorithm chose : " + str(newlist[index]))
+			return newlist[index]
+	print("error getting item, you should never ever see this btw")
+	return {}
