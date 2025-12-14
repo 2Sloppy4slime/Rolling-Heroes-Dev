@@ -1,19 +1,27 @@
-[gd_scene load_steps=38 format=4 uid="uid://d4m22gwseevlt"]
+[gd_scene load_steps=35 format=4 uid="uid://d4m22gwseevlt"]
 
 [ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://images/665699118ff5af724a2006631d54bf0b.jpg" id="1_xwrnc"]
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_wflre"]
 [ext_resource type="Script" uid="uid://1konv62i3rbx" path="res://scenes/rigid_body_3d.gd" id="3_wflre"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1pmx4"]
+friction = 0.0
+bounce = 0.2
+
+[sub_resource type="SphereMesh" id="SphereMesh_x8kkn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kl3nh"]
+albedo_color = Color(0.6378432, 0.6378432, 0.6378431, 1)
+metallic = 1.0
+metallic_specular = 0.6
+metallic_texture = ExtResource("1_xwrnc")
+roughness = 0.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tv6xk"]
+radius = 0.5094606
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yemdt"]
-friction = 0.88
-
-[sub_resource type="SphereMesh" id="SphereMesh_xuine"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_eb3d6"]
-albedo_texture = ExtResource("1_xwrnc")
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_nmyrp"]
-radius = 0.43111682
+friction = 0.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_x8kkn"]
 
@@ -21,7 +29,7 @@ radius = 0.43111682
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_xwrnc"]
 friction = 0.0
-bounce = 0.2
+bounce = 1.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_wflre"]
 
@@ -65,7 +73,6 @@ bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mbw2x"]
 friction = 0.0
-bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgs3o"]
 friction = 0.0
@@ -125,50 +132,30 @@ size = Vector3(0.11640167, 0.1362381, 0.8318721)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw7vg"]
 bounce = 1.0
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1pmx4"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="SphereMesh" id="SphereMesh_x8kkn"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kl3nh"]
-albedo_color = Color(0.6378432, 0.6378432, 0.6378431, 1)
-metallic = 1.0
-metallic_specular = 0.6
-roughness = 0.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_tv6xk"]
-radius = 0.5094606
-
 [node name="Node3D" type="Node3D"]
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5764181, 0.817155, 0, -0.817155, 0.5764181, 0, 2.775447, 2.4982548)
 
-[node name="sphere" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.91193813, 0)
-visible = false
-mass = 1000.0
-physics_material_override = SubResource("PhysicsMaterial_yemdt")
-gravity_scale = 3.0
-
-[node name="sphere" type="MeshInstance3D" parent="sphere"]
-transform = Transform3D(-0.7893608, 5.0030646e-08, -0.03177304, 0.026626585, 0.4310508, -0.6615031, 0.017336404, -0.66203874, -0.43070212, 0, 0, 0)
-mesh = SubResource("SphereMesh_xuine")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_eb3d6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.016305119, 0)
-shape = SubResource("SphereShape3D_nmyrp")
-
-[node name="sphere2" parent="sphere" instance=ExtResource("2_wflre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.023813128, 0.16999674, -0.8091366)
-
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4617429, 0)
 light_energy = 2.0
 omni_range = 104.170135
+
+[node name="sphere1" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8874913, -1.979964)
+physics_material_override = SubResource("PhysicsMaterial_1pmx4")
+script = ExtResource("3_wflre")
+
+[node name="sphere" type="MeshInstance3D" parent="sphere1"]
+transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)
+mesh = SubResource("SphereMesh_x8kkn")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_kl3nh")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere1" groups=["ball"]]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+shape = SubResource("SphereShape3D_tv6xk")
 
 [node name="sphere2" parent="." instance=ExtResource("2_wflre")]
 transform = Transform3D(0.9998915, 0, 0.0147300465, 0, 1, 0, -0.0147300465, 0, 0.9998915, 0.21816, 0.9318367, -1.9942439)
@@ -177,14 +164,15 @@ gravity_scale = 4.5
 [node name="Node3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.93969244, -0.34202006, 0, 0.34202006, 0.93969244, 0, 0, 0)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="Node3D"]
+[node name="floot" type="StaticBody3D" parent="Node3D"]
 transform = Transform3D(3, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
+physics_material_override = SubResource("PhysicsMaterial_yemdt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/floot"]
 mesh = SubResource("BoxMesh_x8kkn")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/floot"]
 shape = SubResource("BoxShape3D_kl3nh")
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="Node3D"]
@@ -286,7 +274,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("CylinderShape3D_shq33")
 
 [node name="Bumper 2" type="StaticBody3D" parent="Node3D/Node3D2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0950222, 0.2, -1.2224776)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.0005168915, 0.20000002, -1.2224776)
 physics_material_override = SubResource("PhysicsMaterial_mbw2x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D2/Bumper 2"]
@@ -357,18 +345,3 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/PaleD"]
 transform = Transform3D(-0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, -0.5, 0.44242564, 0.17888272, 1.8355117)
 shape = SubResource("BoxShape3D_n1vkw")
-
-[node name="RigidBody3D" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8874913, -1.979964)
-physics_material_override = SubResource("PhysicsMaterial_1pmx4")
-script = ExtResource("3_wflre")
-
-[node name="sphere" type="MeshInstance3D" parent="RigidBody3D"]
-transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)
-mesh = SubResource("SphereMesh_x8kkn")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_kl3nh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" groups=["ball"]]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("SphereShape3D_tv6xk")

@@ -67,19 +67,16 @@ fov = 85.0
 
 [node name="Floor" type="MeshInstance3D" parent="decor"]
 transform = Transform3D(15, 0, 0, 0, 15, 0, 0, 0, 15, 0, -3.0823352, 0)
-visible = false
 mesh = SubResource("PlaneMesh_nm0m5")
 surface_material_override/0 = SubResource("StandardMaterial3D_nm0m5")
 
 [node name="Wall" type="MeshInstance3D" parent="decor"]
 transform = Transform3D(14.999999, 0, 0, 0, -6.5567076e-07, -14.999999, 0, 14.999999, -6.5567076e-07, 0, 0, -2.8137589)
-visible = false
 mesh = SubResource("PlaneMesh_nm0m5")
 surface_material_override/0 = SubResource("StandardMaterial3D_130ib")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="decor"]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 7.490961, 1.591686)
-visible = false
 light_energy = 6.585
 spot_range = 18.215153
 spot_angle = 51.22182
