@@ -13,6 +13,20 @@ extends RigidBody3D
 @export var Currentpointstonudge = 0
 @export var next_bounce_functions = [] #[(func,idcollision)]
 @export var next_bounce_condition_id = 0
+func _ready():
+	self.set_contact_monitor(true)
+	self.set_max_contacts_reported(5)
+	pass
+
+var last_bounce_list = []
+func _physics_process(delta: float) -> void:
+	for node in get_colliding_bodies():
+		if !node.is_in_group("flipper floor") and !node in last_bounce_list:
+			print(self.name + "collided with : " + node.name)
+	
+	last_bounce_list = get_colliding_bodies()
+
+		
 func _input(event):
 	
 	if event.is_action_pressed("nudge_up"):

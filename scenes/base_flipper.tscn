@@ -1,24 +1,6 @@
-[gd_scene load_steps=35 format=4 uid="uid://d4m22gwseevlt"]
+[gd_scene load_steps=28 format=4 uid="uid://d4m22gwseevlt"]
 
-[ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://images/665699118ff5af724a2006631d54bf0b.jpg" id="1_xwrnc"]
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_wflre"]
-[ext_resource type="Script" uid="uid://1konv62i3rbx" path="res://scenes/rigid_body_3d.gd" id="3_wflre"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_1pmx4"]
-friction = 0.0
-bounce = 0.2
-
-[sub_resource type="SphereMesh" id="SphereMesh_x8kkn"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kl3nh"]
-albedo_color = Color(0.6378432, 0.6378432, 0.6378431, 1)
-metallic = 1.0
-metallic_specular = 0.6
-metallic_texture = ExtResource("1_xwrnc")
-roughness = 0.0
-
-[sub_resource type="SphereShape3D" id="SphereShape3D_tv6xk"]
-radius = 0.5094606
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yemdt"]
 friction = 0.0
@@ -44,20 +26,16 @@ friction = 0.0
 bounce = 0.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nmyrp"]
-friction = 0.0
+friction = 0.1
 bounce = 0.2
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tv6xk"]
-friction = 0.0
-bounce = 0.2
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_1pmx4"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_kl3nh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wflre"]
 friction = 0.0
 bounce = 0.6
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1pmx4"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_kl3nh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_x8kkn"]
 friction = 0.0
@@ -130,6 +108,7 @@ shadow_mesh = SubResource("ArrayMesh_juu8f")
 size = Vector3(0.11640167, 0.1362381, 0.8318721)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw7vg"]
+friction = 0.8
 bounce = 1.0
 
 [node name="Node3D" type="Node3D"]
@@ -142,206 +121,185 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.4617429, 0)
 light_energy = 2.0
 omni_range = 104.170135
 
-[node name="sphere1" type="RigidBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8874913, -1.979964)
-physics_material_override = SubResource("PhysicsMaterial_1pmx4")
-script = ExtResource("3_wflre")
-
-[node name="sphere" type="MeshInstance3D" parent="sphere1"]
-transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)
-mesh = SubResource("SphereMesh_x8kkn")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("StandardMaterial3D_kl3nh")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="sphere1" groups=["ball"]]
-transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("SphereShape3D_tv6xk")
-
 [node name="sphere2" parent="." instance=ExtResource("2_wflre")]
-transform = Transform3D(0.9998915, 0, 0.0147300465, 0, 1, 0, -0.0147300465, 0, 0.9998915, 0.21816, 0.9318367, -1.9942439)
-gravity_scale = 4.5
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.987238, 0.54776293, -1.0621763)
 
-[node name="Node3D" type="Node3D" parent="."]
+[node name="sphere3" parent="." instance=ExtResource("2_wflre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3148809, 0.7034356, 1.3701373)
+
+[node name="sphere4" parent="." instance=ExtResource("2_wflre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78881925, 0.8766776, -1.9155794)
+
+[node name="Flipper" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.93969244, -0.34202006, 0, 0.34202006, 0.93969244, 0, 0, 0)
 
-[node name="floot" type="StaticBody3D" parent="Node3D"]
+[node name="floor" type="StaticBody3D" parent="Flipper" groups=["flipper floor"]]
 transform = Transform3D(3, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_yemdt")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/floot"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/floor" groups=["flipper floor"]]
 mesh = SubResource("BoxMesh_x8kkn")
 skeleton = NodePath("../../..")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/floot"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/floor" groups=["flipper floor"]]
 shape = SubResource("BoxShape3D_kl3nh")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="Node3D"]
+[node name="LeftWall" type="StaticBody3D" parent="Flipper" groups=["flipper wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3965575, 0.19422305, 0)
 physics_material_override = SubResource("PhysicsMaterial_xwrnc")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/LeftWall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
 mesh = SubResource("BoxMesh_wflre")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/LeftWall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("BoxShape3D_yemdt")
 
-[node name="StaticBody3D3" type="StaticBody3D" parent="Node3D"]
+[node name="rightwall" type="StaticBody3D" parent="Flipper" groups=["flipper wall"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3948919, 0.19422305, 0)
 physics_material_override = SubResource("PhysicsMaterial_xuine")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/rightwall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
 mesh = SubResource("BoxMesh_wflre")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/rightwall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
 shape = SubResource("BoxShape3D_yemdt")
 
-[node name="StaticBody3D4" type="StaticBody3D" parent="Node3D"]
+[node name="topWall" type="StaticBody3D" parent="Flipper"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.017265677, 0.19422305, -2.40463)
 physics_material_override = SubResource("PhysicsMaterial_eb3d6")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/topWall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("BoxMesh_wflre")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D4"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/topWall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("BoxShape3D_yemdt")
 
-[node name="StaticBody3D5" type="StaticBody3D" parent="Node3D"]
+[node name="Bottomwall" type="StaticBody3D" parent="Flipper"]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.017265677, 0.19422305, 2.4505107)
 physics_material_override = SubResource("PhysicsMaterial_nmyrp")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D5"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/Bottomwall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 3, 0, 0, 0)
 mesh = SubResource("BoxMesh_wflre")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D5"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/Bottomwall"]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 3, 0, 0, 0)
 shape = SubResource("BoxShape3D_yemdt")
 
-[node name="StaticBody3D6" type="StaticBody3D" parent="Node3D"]
-transform = Transform3D(-8.742278e-07, 0, 1, 0, 1, 0, -20, 0, -4.371139e-08, 0.9657572, 0.2, 0.37486017)
-physics_material_override = SubResource("PhysicsMaterial_tv6xk")
+[node name="obstacles" type="Node3D" parent="Flipper"]
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/StaticBody3D6"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
-shape = SubResource("BoxShape3D_1pmx4")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/StaticBody3D6"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
-mesh = SubResource("BoxMesh_kl3nh")
-
-[node name="Node3D2" type="Node3D" parent="Node3D"]
-
-[node name="Obstacle 2" type="StaticBody3D" parent="Node3D/Node3D2"]
+[node name="Obstacle 2" type="StaticBody3D" parent="Flipper/obstacles"]
 transform = Transform3D(0.7307821, 0, -0.6826108, 0, 1, 0, 0.6826108, 0, 0.7307821, -0.8, 0.2, -1)
 physics_material_override = SubResource("PhysicsMaterial_wflre")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Node3D2/Obstacle 2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/obstacles/Obstacle 2"]
 transform = Transform3D(0.8, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_1pmx4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D2/Obstacle 2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/obstacles/Obstacle 2"]
 transform = Transform3D(0.8, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_kl3nh")
 
-[node name="Obstacle 1" type="StaticBody3D" parent="Node3D/Node3D2"]
+[node name="Obstacle 1" type="StaticBody3D" parent="Flipper/obstacles"]
 transform = Transform3D(0.7313537, 0, 0.6819984, 0, 1, 0, -0.6819984, 0, 0.7313537, 0.47513562, 0.2, -0.5871142)
 physics_material_override = SubResource("PhysicsMaterial_x8kkn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Node3D2/Obstacle 1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/obstacles/Obstacle 1"]
 transform = Transform3D(0.8, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_1pmx4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D2/Obstacle 1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/obstacles/Obstacle 1"]
 transform = Transform3D(0.8, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_kl3nh")
 
-[node name="Bumper 1" type="StaticBody3D" parent="Node3D/Node3D2"]
+[node name="Bumper 1" type="StaticBody3D" parent="Flipper/obstacles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.56457245, 0.2, -1.4849155)
 physics_material_override = SubResource("PhysicsMaterial_kl3nh")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D2/Bumper 1"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/obstacles/Bumper 1"]
 transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("CylinderMesh_tv6xk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Node3D2/Bumper 1"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/obstacles/Bumper 1"]
 transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("CylinderShape3D_shq33")
 
-[node name="Bumper 2" type="StaticBody3D" parent="Node3D/Node3D2"]
+[node name="Bumper 2" type="StaticBody3D" parent="Flipper/obstacles"]
 transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.0005168915, 0.20000002, -1.2224776)
 physics_material_override = SubResource("PhysicsMaterial_mbw2x")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D2/Bumper 2"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/obstacles/Bumper 2"]
 transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("CylinderMesh_tv6xk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Node3D2/Bumper 2"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/obstacles/Bumper 2"]
 transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("CylinderShape3D_shq33")
 
-[node name="Coin" type="StaticBody3D" parent="Node3D/Node3D2"]
+[node name="Coin" type="StaticBody3D" parent="Flipper/obstacles"]
 transform = Transform3D(0.7307821, 0, -0.6826108, 0, 1, 0, 0.6826108, 0, 0.7307821, 1.1393356, 0.2, -2.1531253)
 physics_material_override = SubResource("PhysicsMaterial_hgs3o")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Node3D2/Coin"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/obstacles/Coin"]
 transform = Transform3D(0.8, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
 shape = SubResource("BoxShape3D_1pmx4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D2/Coin"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/obstacles/Coin"]
 transform = Transform3D(0.8, 0, 0, 0, 0.2, 0, 0, 0, 0.1, 0, 0, 0)
 mesh = SubResource("BoxMesh_kl3nh")
 
-[node name="Bumper3" type="StaticBody3D" parent="Node3D/Node3D2"]
+[node name="Bumper3" type="StaticBody3D" parent="Flipper/obstacles"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.1675388, 0.2, -2.1259222)
 physics_material_override = SubResource("PhysicsMaterial_1wn12")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Node3D2/Bumper3"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/obstacles/Bumper3"]
 transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 mesh = SubResource("CylinderMesh_tv6xk")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Node3D2/Bumper3"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/obstacles/Bumper3"]
 transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 0.2, 0, 0, 0)
 shape = SubResource("CylinderShape3D_shq33")
 
-[node name="Gros bidule au milieu" type="StaticBody3D" parent="Node3D"]
+[node name="Gros bidule au milieu" type="StaticBody3D" parent="Flipper"]
 transform = Transform3D(0.7307821, 0, -0.6826108, -4.4703484e-08, 1.0000007, -2.9802322e-08, 0.6826112, 2.9802322e-08, 0.7307826, -0.84640276, 0.18057811, 0.4748675)
 physics_material_override = SubResource("PhysicsMaterial_84xgc")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Gros bidule au milieu"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/Gros bidule au milieu"]
 transform = Transform3D(0.64, 0, 0, 0, 0.16, 0, 0, 0, 0.64, 0, 0, 0)
 shape = SubResource("BoxShape3D_1pmx4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Gros bidule au milieu"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/Gros bidule au milieu"]
 transform = Transform3D(0.64, 0, 0, 0, 0.16, 0, 0, 0, 0.64, 0, 0, 0)
 mesh = SubResource("BoxMesh_kl3nh")
 
-[node name="PaleG" type="StaticBody3D" parent="Node3D"]
+[node name="PaleG" type="StaticBody3D" parent="Flipper"]
 transform = Transform3D(-0.5, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, -0.5, -0.7933021, 0.17002118, 1.8380549)
 physics_material_override = SubResource("PhysicsMaterial_0b7l0")
 
-[node name="Cube" type="MeshInstance3D" parent="Node3D/PaleG"]
+[node name="Cube" type="MeshInstance3D" parent="Flipper/PaleG"]
 transform = Transform3D(0.18, 0, -7.450581e-09, 0, 0.3, 0, 7.450581e-09, 0, 0.18, 0, 0.016465068, 0)
 mesh = SubResource("ArrayMesh_w7pml")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/PaleG"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/PaleG"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00076305866, 0.008861542, -0.0020456314)
 shape = SubResource("BoxShape3D_n1vkw")
 
-[node name="PaleD" type="StaticBody3D" parent="Node3D"]
+[node name="PaleD" type="StaticBody3D" parent="Flipper"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.24831402, 0, 0)
 physics_material_override = SubResource("PhysicsMaterial_yw7vg")
 
-[node name="Cube" type="MeshInstance3D" parent="Node3D/PaleD"]
+[node name="Cube" type="MeshInstance3D" parent="Flipper/PaleD"]
 transform = Transform3D(-0.09, 0, 0.15588456, 0, 0.3, 0, -0.15588456, 0, -0.09, 0.43961346, 0.18648624, 1.8380549)
 mesh = SubResource("ArrayMesh_w7pml")
 skeleton = NodePath("")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/PaleD"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/PaleD"]
 transform = Transform3D(-0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, -0.5, 0.44242564, 0.17888272, 1.8355117)
 shape = SubResource("BoxShape3D_n1vkw")

@@ -15,15 +15,13 @@ run/main_scene="uid://d4m22gwseevlt"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://images/icon.svg"
 
-[display]
-
-window/size/viewport_width=1920
-window/size/viewport_height=1080
-
 [global_group]
 
 ball="is a playable ball"
 enemy="bad guys :("
+"flipper wall"="flipper wall for colliding"
+"flipper accesory"="bumpers etc... idk for upgrades too"
+"flipper floor"="floor of the level, ignore collision always"
 
 [input]
 

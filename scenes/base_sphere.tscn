@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://rg8ng4maolo3"]
 
-[ext_resource type="Script" uid="uid://c8msfpuh6a5e1" path="res://scripts/base_sphere.gd" id="1_4bfup"]
+[ext_resource type="Script" uid="uid://1konv62i3rbx" path="res://scripts/balle.gd" id="1_4bfup"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4bfup"]
 friction = 0.0
@@ -20,7 +20,6 @@ radius = 0.5094606
 [node name="sphere" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_4bfup")
 script = ExtResource("1_4bfup")
-bounce_factor = 1.0
 
 [node name="sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)
