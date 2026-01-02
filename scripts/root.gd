@@ -30,19 +30,19 @@ func ball_upgrade(id : int) : #ball upgrades are id 0-50
 	
 	match id: #basically just change the stats of the ball
 		0: 
-			ball.bounce_factor += 0.03
+			ball.current_stats["bounce_factor"]					+= 0.03
 		1: 
-			ball.base_points_multiplier += 0.3
+			ball.current_stats["base_points_multiplier"]		+= 0.3
 		2: 
-			ball.flat_damage += 1
+			ball.current_stats["flat_damage"]					+= 1
 		3: 
-			ball.base_damage_multiplier += 0.3
+			ball.current_stats["base_damage_multiplier"]		+= 0.3
 		4: 
-			ball.max_damage_multiplier += .6
+			ball.current_stats["max_damage_multiplier"]			+= .6
 		5:
-			ball.launch_speed += 10
+			ball.current_stats["launch_speed"]					+= 10
 		6:
-			ball.Canbreakshield = true
+			ball.current_stats["Canbreakshield"]				= true
 		_:
 			print("no upgrades with this id")
 		

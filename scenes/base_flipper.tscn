@@ -27,7 +27,6 @@ bounce = 0.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nmyrp"]
 friction = 0.1
-bounce = 0.2
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_wflre"]
 friction = 0.0
