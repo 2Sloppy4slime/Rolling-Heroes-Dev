@@ -56,3 +56,4 @@ func check_death():
 		return true
 	else : 
 		return false
+		

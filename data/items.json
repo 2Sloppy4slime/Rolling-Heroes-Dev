@@ -54,7 +54,7 @@
 "type"		: 	"ball",
 "upgrade_id"	: 	5,
 "price" 		: 	1000,
-"rarity" 		: 	1,
+"rarity" 		: 	2,
 "chance_by_pool"	: 	{"base":50,"shop":40},
 "description" 	: 	"Launching speed +1",
 "image" 		: 	"res://images/occultcowboy.png"

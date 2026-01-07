@@ -20,6 +20,7 @@ radius = 0.5094606
 [node name="sphere" type="RigidBody3D"]
 physics_material_override = SubResource("PhysicsMaterial_4bfup")
 continuous_cd = true
+linear_damp_mode = 1
 script = ExtResource("1_4bfup")
 
 [node name="sphere" type="MeshInstance3D" parent="."]

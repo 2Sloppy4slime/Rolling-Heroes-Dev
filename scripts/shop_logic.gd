@@ -11,11 +11,13 @@ var item_pool
 #get item pool from item_manipulation
 func _ready():
 	item_pool = ITEM_MANIPULATOR.get_items_in({"pool":"shop"})
+	populate()
 func populate():
-	while spaces > len(items_in_shop) :
+	while spaces >= len(items_in_shop) :
 		print("finding item for populate...")
-		items_in_shop.append(ITEM_MANIPULATOR.select_item())
-	print(items_in_shop)
+		items_in_shop.append(ITEM_MANIPULATOR.select_item(item_pool))
+	for item in items_in_shop:
+		print(item)
 	
 func buy(itemindex): #itemnumber = index in items_in_shop
 	if items_in_shop[itemindex]["price"] < GAME_MANAGER.points :

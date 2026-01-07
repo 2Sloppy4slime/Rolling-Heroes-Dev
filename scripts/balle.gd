@@ -40,8 +40,9 @@ func _physics_process(delta: float) -> void:
 				if bouncefunc[2] > 1: 
 					bouncefunc[2] -= 1 
 					new_nbf.append(bouncefunc)
-					
-				else : #bouncefunc has no more uses
+				elif bouncefunc[2] < 0 : #bouncefunc has no more uses
+					new_nbf.append(bouncefunc)
+				else:
 					pass
 					#print(self.name + " has ran out of bouncefunc " + bouncefunc[0])
 			
@@ -68,7 +69,6 @@ func _input(event):
 
 
 func print_bounced() : print("bounced")
-func print_bouncedtoo() : print("bounced2")
 
 
 
