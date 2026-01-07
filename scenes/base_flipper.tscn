@@ -68,7 +68,7 @@ bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgs3o"]
 friction = 0.0
-bounce = 1.0
+bounce = 5.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_eb3d6"]
 size = Vector3(0.8, 0.2, 0.1)
@@ -323,4 +323,4 @@ transform = Transform3D(1, 0, 0, 0, 0.9999998, -2.9802322e-07, 0, 2.9802322e-07,
 shape = SubResource("BoxShape3D_1pmx4")
 
 [node name="ball_spawn" parent="." instance=ExtResource("2_xwrnc")]
-transform = Transform3D(0.62724286, 0.77882373, 0, -0.77882373, 0.62724286, 0, 0, 0, 1, 0.5522971, 0.16599499, -0.001481019)
+transform = Transform3D(-2.8097144e-08, -3.3484866e-08, 0.99999994, -0.76604456, 0.64278764, 0, -0.6427877, -0.76604444, -4.3711385e-08, 1.1423056, -0.59686804, 2.2220306)

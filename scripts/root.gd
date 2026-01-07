@@ -37,11 +37,11 @@ func upgrade(id : int) : #ball upgrades are id 0-50 for now
 		2: 
 			ball.current_stats["flat_damage"]					+= 1
 		3: 
-			ball.current_stats["base_damage_multiplier"]		+= 0.3
+			ball.current_stats["base_damage_multiplier"]		+= 0.07
 		4: 
 			ball.current_stats["max_damage_multiplier"]			+= .6
 		5:
-			ball.current_stats["launch_speed"]					+= 10
+			ball.current_stats["launch_speed"]					+= 1
 		6:
 			ball.current_stats["Canbreakshield"]				= true
 		_:

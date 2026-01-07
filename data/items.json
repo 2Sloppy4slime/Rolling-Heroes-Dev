@@ -16,7 +16,57 @@
 "price" 		: 	1000,
 "rarity" 		: 	1,
 "chance_by_pool"	: 	{"base":50,"shop":40},
-"description" 	: 	"points_multiplier + 0.05",
+"description" 	: 	"points multiplier + 0.05",
+"image" 		: 	"res://images/occultcowboy.png"
+},
+{ 
+"name"		:	"hard~",
+"type"		: 	"ball",
+"upgrade_id"	: 	2,
+"price" 		: 	1000,
+"rarity" 		: 	1,
+"chance_by_pool"	: 	{"base":50,"shop":40},
+"description" 	: 	"flat dmg +1",
+"image" 		: 	"res://images/occultcowboy.png"
+},
+{ 
+"name"		:	"angy",
+"type"		: 	"ball",
+"upgrade_id"	: 	3,
+"price" 		: 	1000,
+"rarity" 		: 	1,
+"chance_by_pool"	: 	{"base":50,"shop":40},
+"description" 	: 	"Base damage multiplier + 0.07",
+"image" 		: 	"res://images/occultcowboy.png"
+},
+{ 
+"name"		:	"anger but max",
+"type"		: 	"ball",
+"upgrade_id"	: 	4,
+"price" 		: 	1000,
+"rarity" 		: 	1,
+"chance_by_pool"	: 	{"base":50,"shop":40},
+"description" 	: 	"Maximum damage multiplier + 0.07",
+"image" 		: 	"res://images/occultcowboy.png"
+},
+{ 
+"name"		:	"gunpowdah",
+"type"		: 	"ball",
+"upgrade_id"	: 	5,
+"price" 		: 	1000,
+"rarity" 		: 	1,
+"chance_by_pool"	: 	{"base":50,"shop":40},
+"description" 	: 	"Launching speed +1",
+"image" 		: 	"res://images/occultcowboy.png"
+},
+{ 
+"name"		:	"break ts up ",
+"type"		: 	"ball",
+"upgrade_id"	: 	6,
+"price" 		: 	1000,
+"rarity" 		: 	3,
+"chance_by_pool"	: 	{"base":1,"shop":1},
+"description" 	: 	"ball can break shields now",
 "image" 		: 	"res://images/occultcowboy.png"
 }
 ]
