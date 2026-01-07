@@ -28,7 +28,7 @@ friction = 0.0
 bounce = 0.2
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gep7q"]
-size = Vector3(0.2, 0.2, 0.3)
+size = Vector3(0.2, 0.2, 3)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nmyrp"]
 friction = 0.1
@@ -90,7 +90,7 @@ cull_mode = 2
 albedo_color = Color(0.9063318, 0.9063318, 0.9063318, 1)
 roughness = 0.5
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_juu8f"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_n1f72"]
 _surfaces = [{
 "aabb": AABB(-0.33865565, -0.33865565, -2.3537471, 0.6773113, 0.6773113, 4.7074943),
 "format": 34896613377,
@@ -122,7 +122,7 @@ _surfaces = [{
 "vertex_data": PackedByteArray("lKf//wAA//8AAP///////2pY//8AAP///////////////wAA////vwAA//////+//////////78AAAAA////v2pYAAAAAP+///8AAP///7+UpwAAAAD/vwAAAAD///+/lKcAAAAAttj///////9U1ZSn//8AALbY//8AAP//VNVqWAAAAAD//5Sn//8AAP//alj//wAA//+UpwAAAAD//wAAAAD//1TValj//wAAttgAAP////9U1WpYAAAAALbY/////9lZ//8AAP//2Vn//wAAAADZWbbYAAD//9lZttgAAAAA2Vn/v///AADZWf+///8AANlZVNX/////2VlU1f/////ZWbbY//8AANlZttgAAP//2VlU1QAAAADZWVTV/3//v/9//7//f/+//3//v/////////////////////8AAP9/AAD/fwAA/38AAP9/nyyfLKoqqiqfLJ8sqiqqKv+//7//v/+//7//v/+//79U1VTVX9Nf01TVVNVf01/T/3//v/9//79f01/TX9Nf0wAA/38AAP9/qiqqKqoqqiqfLJ8snyyfLFTVVNVU1VTV")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_juu8f")
+shadow_mesh = SubResource("ArrayMesh_n1f72")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_n1vkw"]
 size = Vector3(0.11640167, 0.1362381, 0.8318721)
