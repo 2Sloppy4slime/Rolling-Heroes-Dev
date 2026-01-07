@@ -6,7 +6,9 @@
 [sub_resource type="CylinderMesh" id="CylinderMesh_qkrhk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vml06"]
-albedo_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+albedo_color = Color(0.051970966, 0.05197096, 0.05197095, 1)
+metallic_specular = 0.0
+metallic_texture_channel = 4
 
 [node name="ball_spawn" type="Node3D"]
 script = ExtResource("1_qkrhk")

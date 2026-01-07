@@ -16,3 +16,9 @@ func _input(event):
 	#à changer, pour test pour l'instant
 	if event.is_action_pressed("nudge_right"):
 		spawnball()
+		
+		
+		
+func _ready():
+	$Sprite3D.hide()
+	$Sprite3D2.hide()
