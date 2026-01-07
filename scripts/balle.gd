@@ -15,7 +15,7 @@ extends RigidBody3D
 	"pointstochargenudge"		:	100,
 	"currentpointstonudge"		:	0,
 	
-	"next_bounce_functions"		:	[["print_bounced","any",10],["print_bouncedtoo","any",10]] #[ [func,collisionid,uses] ]
+	"next_bounce_functions"		:	[] #[ [func,collisionid,uses] ]
 }
 
 

@@ -50,6 +50,7 @@ bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mbw2x"]
 friction = 0.0
+bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_hgs3o"]
 friction = 0.0
@@ -124,7 +125,7 @@ omni_range = 104.170135
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.987238, 0.54776293, -1.0621763)
 
 [node name="sphere3" parent="." instance=ExtResource("2_wflre")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3148809, 0.7034356, 1.3701373)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0058615804, 0.84104615, -1.6491727)
 
 [node name="sphere4" parent="." instance=ExtResource("2_wflre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.78881925, 0.8766776, -1.9155794)

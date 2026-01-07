@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bbmoc4vgmd513"]
+
+[ext_resource type="Script" uid="uid://bnota680woiiy" path="res://scripts/shop_logic.gd" id="1_uj65v"]
+
+[node name="shop_menu" type="Node3D"]
+script = ExtResource("1_uj65v")

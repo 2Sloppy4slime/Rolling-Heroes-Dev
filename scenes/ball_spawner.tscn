@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://fsfdv8ckeiyx"]
+
+[ext_resource type="Texture2D" uid="uid://1oou5w3wa3ox" path="res://art/2D/dev_ball_spawn.png" id="1_vml06"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_qkrhk"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vml06"]
+albedo_color = Color(0.3515629, 0.3515629, 0.35156286, 1)
+
+[node name="ball_spawn" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.00012129545, 0, 0, 0, 1, 0, 0, 0)
+mesh = SubResource("CylinderMesh_qkrhk")
+surface_material_override/0 = SubResource("StandardMaterial3D_vml06")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.008345276, 0.25187892, 0)
+texture = ExtResource("1_vml06")

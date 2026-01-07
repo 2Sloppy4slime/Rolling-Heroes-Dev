@@ -25,14 +25,15 @@ func set_ball() :
 func get_sticker_spots_from_level():
 	pass
 
-func ball_upgrade(id : int) : #ball upgrades are id 0-50 
+
+func upgrade(id : int) : #ball upgrades are id 0-50 for now
 	set_ball()
 	
 	match id: #basically just change the stats of the ball
 		0: 
 			ball.current_stats["bounce_factor"]					+= 0.03
 		1: 
-			ball.current_stats["base_points_multiplier"]		+= 0.3
+			ball.current_stats["base_points_multiplier"]		+= 0.05
 		2: 
 			ball.current_stats["flat_damage"]					+= 1
 		3: 
@@ -46,14 +47,6 @@ func ball_upgrade(id : int) : #ball upgrades are id 0-50
 		_:
 			print("no upgrades with this id")
 		
-func pale_upgrade(id : int) :
-	match id :
-		_:
-			print("no upgrades with this id")
-func sticker_upgrade(id: int):
-	match id :
-		_:
-			print("no upgrades with this id")
 func set_nudge(id:int) :
 	match id :
 		_:
