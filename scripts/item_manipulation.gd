@@ -15,7 +15,6 @@ func _ready():
 		print("Failed to open file: ", json_path)
 		
 	
-	select_item(get_items_in())
 
 #json 			: name , type, upgrade id, price, rarity, chance, description, image
 # name 			: string 	(name of the item)
@@ -29,7 +28,7 @@ func _ready():
 
 
 #Function : returns all items who match the parameters (PARAMETERS ARE ADDITIVE, A∩B NOT A∪B)
-func get_items_in(itemlist = items,params : Dictionary = {}): #params{} "rarity" : int | "pool" : string | "type" : string
+func get_items_in(params : Dictionary = {},itemlist = items): #params{} "rarity" : int | "pool" : string | "type" : string
 	var res = []
 	if len(params.keys()) == 0 :
 		print("no params given, return full list")
@@ -101,7 +100,7 @@ func select_item(list : Array, pool = "base") : # on met les pools dedans
 			if rarityroll > 90 : 
 				rarity = 3
 
-	var newlist = get_items_in(list ,{"rarity": rarity})
+	var newlist = get_items_in({"rarity": rarity},list)
 	if len(newlist) == 0 :
 		print("fallback, item with rarity : " + str(rarity) + " doesn't exist in list, goign back to original list")
 		newlist = list

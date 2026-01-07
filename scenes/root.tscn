@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://wb1lvxe15t3x"]
+[gd_scene load_steps=7 format=3 uid="uid://wb1lvxe15t3x"]
 
 [ext_resource type="Texture2D" uid="uid://cj6plibfop07f" path="res://images/Capture d'écran 2024-04-03 195640.png" id="1_lrqlo"]
 [ext_resource type="Script" uid="uid://lq7esxjsblpl" path="res://scripts/root.gd" id="1_sqa0i"]
 [ext_resource type="Texture2D" uid="uid://4t4a62bru1hr" path="res://images/occultcowboy.png" id="2_sqa0i"]
 [ext_resource type="Texture2D" uid="uid://bss311mniq44s" path="res://images/Sprite-0001.png" id="3_jh1ax"]
 [ext_resource type="Script" uid="uid://4iqbbahuhuot" path="res://scripts/item_manipulation.gd" id="5_jh1ax"]
+[ext_resource type="PackedScene" uid="uid://bbmoc4vgmd513" path="res://scenes/shop_menu.tscn" id="6_kycxp"]
 
 [node name="Root" type="Node3D"]
 script = ExtResource("1_sqa0i")
@@ -21,5 +22,7 @@ texture = ExtResource("2_sqa0i")
 transform = Transform3D(5.435, 0, 0, 0, 5.435, 0, 0, 0, 5.435, 6.078556, 0, -7.8813252)
 texture = ExtResource("3_jh1ax")
 
-[node name="item_manipulator" type="Node" parent="."]
+[node name="item_manipulator" type="Node" parent="." groups=["item_manipulator"]]
 script = ExtResource("5_jh1ax")
+
+[node name="shop_menu" parent="." instance=ExtResource("6_kycxp")]

@@ -22,6 +22,7 @@ enemy="bad guys :("
 "flipper wall"="flipper wall for colliding"
 "flipper accesory"="bumpers etc... idk for upgrades too"
 "flipper floor"="floor of the level, ignore collision always"
+item_manipulator=""
 
 [input]
 
