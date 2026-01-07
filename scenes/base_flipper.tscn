@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://d4m22gwseevlt"]
+[gd_scene load_steps=35 format=4 uid="uid://d4m22gwseevlt"]
 
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_wflre"]
 [ext_resource type="PackedScene" uid="uid://fsfdv8ckeiyx" path="res://scenes/ball_spawner.tscn" id="2_xwrnc"]
@@ -130,6 +130,9 @@ size = Vector3(0.11640167, 0.1362381, 0.8318721)
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yw7vg"]
 friction = 0.8
 bounce = 1.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1pmx4"]
+size = Vector3(3, 0.1, 5)
 
 [node name="Node3D" type="Node3D"]
 
@@ -312,6 +315,12 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/PaleD"]
 transform = Transform3D(-0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, -0.5, 0.44242564, 0.17888272, 1.8355117)
 shape = SubResource("BoxShape3D_n1vkw")
+
+[node name="ceilling" type="StaticBody3D" parent="Flipper"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/ceilling"]
+transform = Transform3D(1, 0, 0, 0, 0.9999998, -2.9802322e-07, 0, 2.9802322e-07, 0.9999998, 0, 0.33882833, -0.023316085)
+shape = SubResource("BoxShape3D_1pmx4")
 
 [node name="ball_spawn" parent="." instance=ExtResource("2_xwrnc")]
 transform = Transform3D(0.62724286, 0.77882373, 0, -0.77882373, 0.62724286, 0, 0, 0, 1, 0.5522971, 0.16599499, -0.001481019)
