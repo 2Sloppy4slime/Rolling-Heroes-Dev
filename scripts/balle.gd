@@ -6,7 +6,7 @@ extends RigidBody3D
 	"flat_damage"				:	1,
 	"base_damage_multiplier"	:	4,
 	
-	"launch_speed"				:	20,
+	"launch_speed"				:	3,
 	
 	"Canbreakshield"			:	false,
 	"Ismultiball"				:	false,
