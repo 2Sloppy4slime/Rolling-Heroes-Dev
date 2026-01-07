@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=4 uid="uid://d4m22gwseevlt"]
+[gd_scene load_steps=34 format=4 uid="uid://d4m22gwseevlt"]
 
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_wflre"]
+[ext_resource type="PackedScene" uid="uid://fsfdv8ckeiyx" path="res://scenes/ball_spawner.tscn" id="2_xwrnc"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yemdt"]
 friction = 0.0
@@ -311,3 +312,6 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/PaleD"]
 transform = Transform3D(-0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, -0.5, 0.44242564, 0.17888272, 1.8355117)
 shape = SubResource("BoxShape3D_n1vkw")
+
+[node name="ball_spawn" parent="." instance=ExtResource("2_xwrnc")]
+transform = Transform3D(0.62724286, 0.77882373, 0, -0.77882373, 0.62724286, 0, 0, 0, 1, 0.5522971, 0.16599499, -0.001481019)
