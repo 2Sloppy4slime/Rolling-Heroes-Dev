@@ -100,10 +100,10 @@ func select_item(list : Array, pool = "base") : # on met les pools dedans
 			if rarityroll > 90 : 
 				rarity = 3
 
-	var newlist = get_items_in({"rarity": rarity},list)
+	var newlist = get_items_in({"rarity": rarity,"pool":pool},list)
 	if len(newlist) == 0 :
 		print("fallback, item with rarity : " + str(rarity) + " doesn't exist in list, goign back to original list")
-		newlist = list
+		newlist = get_items_in({"pool":pool},list)
 	var chosen = false
 	while !chosen :
 		var index = randi_range(0,len(newlist)-1)

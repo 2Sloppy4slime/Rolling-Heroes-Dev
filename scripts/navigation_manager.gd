@@ -17,16 +17,37 @@ extends Node
 # salles/6 = possibilité salles item
 # nav générée [[normal],[dure,normal],[item,normal],[normal],[dure,normal],[shop,normal],[boss]]
 
-var room_number_bounds = [[6,8],[6,9],[8,9],[8,10],[9,10]]
-func generate_nav(bornenumber):
+
+func generate_nav(bound1,bound2):
 	nav = []
-	var nombre_salles = randi_range(room_number_bounds[bornenumber][0],room_number_bounds[bornenumber][1])
-	var sallesitem = nombre_salles/6
-	var sallehard = nombre_salles/6
-	var sallehardskip = nombre_salles/6
+	var nombre_salles = randi_range(bound1,bound2)
+	var sallesspeciales = nombre_salles/6
 	var second_random = true if randi_range(0,100) <=10 else false
-	for i in range(nombre_salles):
+	for i in range(nombre_salles-2):
 		nav.append(["normal"])
+	nav.append(["normal","shop"])
+	nav.append(["boss"])
+	
+	for i in range(sallesspeciales):
+		var pos = randi_range(1,len(nav)-3)
+		if len(nav[pos]) < 3 :
+			nav[pos].append("item")
+		
+		pos = randi_range(1,len(nav)-3)
+		if len(nav[pos]) < 3 :
+			nav[pos].append("hard")
+		
+		pos = randi_range(1,len(nav)-4)
+		if len(nav[pos]) < 3 :
+			nav[pos].append("hard_skip")
+			
+		if randi_range(0,100) > 90 :
+			pos = nombre_salles/2
+			nav[pos].append("shop")
+	return nav
+	
+	
+	
 #assign nav (navlist)
 #
 
