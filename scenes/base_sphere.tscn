@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://rg8ng4maolo3"]
+[gd_scene load_steps=7 format=3 uid="uid://rg8ng4maolo3"]
 
 [ext_resource type="Script" uid="uid://1konv62i3rbx" path="res://scripts/balle.gd" id="1_4bfup"]
+[ext_resource type="Texture2D" uid="uid://1proqf5oq0u8" path="res://images/665699118ff5af724a2006631d54bf0b.jpg" id="2_xxtxb"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4bfup"]
 friction = 0.0
@@ -34,16 +35,20 @@ OG_STATS = {
 "launch_speed": 10,
 "max_damage_multiplier": 2,
 "next_bounce_functions": [],
-"nudgeid": 0,
+"nudgeid": 1,
 "on_kill_functions": [],
 "pointstochargenudge": 100
 }
 
-[node name="sphere" type="MeshInstance3D" parent="."]
+[node name="spheremesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)
 mesh = SubResource("SphereMesh_4bfup")
 skeleton = NodePath("../..")
 surface_material_override/0 = SubResource("StandardMaterial3D_xxtxb")
+
+[node name="Decal" type="Decal" parent="spheremesh"]
+visible = false
+texture_albedo = ExtResource("2_xxtxb")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." groups=["ball"]]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)

@@ -20,6 +20,7 @@ extends RigidBody3D
 	"on_kill_functions"			:	[] # [ [func,uses] ] 
 }
 
+var ballscene = preload("res://scenes/base_sphere.tscn")
 
 var current_stats = {}
 func _ready():
@@ -61,7 +62,8 @@ func _physics_process(delta: float) -> void:
 
 		
 func _input(event):
-	
+	if current_stats["Ismultiball"] :
+		$spheremesh/Decal.show()
 	if event.is_action_pressed("nudge_up") or event.is_action_pressed("nudge_down") or event.is_action_pressed("nudge_left") or event.is_action_pressed("nudge_right"):
 		if self.current_stats["Nudgeready"] :
 			nudge_func(event.is_action_pressed("nudge_up"), event.is_action_pressed("nudge_down"), event.is_action_pressed("nudge_left"), event.is_action_pressed("nudge_right"))
@@ -72,17 +74,32 @@ func onkillfunctions() :
 		pass
 
 func nudge_func(up : bool,down : bool, left: bool, right : bool):
-	match current_stats["nudgeid"] :
-		0 : 
-			# vector3 ( +x : right , -x : left, 0 , +z : down , -z : up)
-			var impulse = Vector3((int(right)-int(left)),0,(int(down)-int(up)))
-			self.apply_central_impulse(impulse)
-		1: #multiball : splits into 3 : 1 nudged (base) 1 stopped and 1 random pushed
-			pass
-		2: #shieldbreaker : breaks any shield on the field
-			pass
-		_:
-			pass
+	if !self.current_stats["Ismultiball"]:
+		match current_stats["nudgeid"] :
+			0 : 
+				# vector3 ( +x : right , -x : left, 0 , +z : down , -z : up)
+				var impulse = Vector3((int(right)-int(left)),0,(int(down)-int(up)))
+				self.apply_central_impulse(impulse)
+			1: #multiball : splits into 3 : 1 nudged (base) 1 stopped and 1 in the other direction
+				var clone1 = ballscene.instantiate()
+				get_tree().root.add_child(clone1)
+				clone1.position = self.position
+				clone1.current_stats["Ismultiball"] = true
+				
+				var impulse = Vector3((int(right)-int(left))*2,0,(int(down)-int(up))*2)
+				self.apply_central_impulse(impulse)
+				var clone2 = ballscene.instantiate()
+				get_tree().root.add_child(clone2)
+				clone2.position = self.position
+				clone2.current_stats["Ismultiball"] = true
+				
+				clone2.apply_central_impulse(-impulse)
+			2: #shieldbreaker : breaks any shield on the field
+				pass
+			_:
+				pass
+	else : 
+		self.apply_central_impulse(Vector3((int(right)-int(left)),0,(int(down)-int(up))))
 
 
 func damage_calc():
