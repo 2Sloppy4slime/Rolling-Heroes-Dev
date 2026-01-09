@@ -143,22 +143,6 @@ omni_range = 104.170135
 
 [node name="sphere" parent="." instance=ExtResource("2_wflre")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.856645, -1.8445824)
-OG_STATS = {
-"Canbreakshield": false,
-"Ismultiball": false,
-"Nudgeready": true,
-"base_damage_multiplier": 1,
-"base_points_multiplier": 1,
-"bounce_factor": 0.5,
-"currentpointstonudge": 0,
-"flat_damage": 1,
-"launch_speed": 10,
-"max_damage_multiplier": 2,
-"next_bounce_functions": [],
-"nudgeid": 0,
-"on_kill_functions": [],
-"pointstochargenudge": 100
-}
 
 [node name="Flipper" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.93969244, -0.34202006, 0, 0.34202006, 0.93969244, 0, 0, 0)

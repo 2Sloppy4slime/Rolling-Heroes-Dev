@@ -107,8 +107,7 @@ func damage_calc():
 	#mult = base mult + (max mult- base mult) * scale(=0->1)
 	#XXXXXXXXXX[-Scale---]XXXXXX
 	#          Base      Max
-	
 	var mult = self.current_stats["base_damage_multiplier"] + (self.current_stats["max_damage_multiplier"] - self.current_stats["base_damage_multiplier"]) * (1 if speed >= 4 else speed/4)
-	var dmg = int(1 * mult + self.current_stats["flat_damage"])
+	var dmg = int(10 * mult + self.current_stats["flat_damage"])
 	print(dmg)
 	return dmg

@@ -1,6 +1,6 @@
 extends RigidBody3D
 
-@export var health = 10
+@export var health = 100
 @export var damage = 100 #multiply by smth figure it out later
 var Canmove = false
 var Canturn = false
