@@ -93,9 +93,8 @@ func nudge_func():
 
 func damage_calc():
 	var speed = sqrt(linear_velocity.x * linear_velocity.x + linear_velocity.y * linear_velocity.y + linear_velocity.z * linear_velocity.z)
-	var scale = 1 if speed >= 4 else speed/4 # int 0->1 
 	#mult = base mult + (max mult- base mult) * scale
-	var mult = self.current_stats["base_damage_multiplier"] + (self.current_stats["max_damage_multiplier"] - self.current_stats["base_damage_multiplier"]) * scale
+	var mult = self.current_stats["base_damage_multiplier"] + (self.current_stats["max_damage_multiplier"] - self.current_stats["base_damage_multiplier"]) * (1 if speed >= 4 else speed/4)
 	var dmg = int(1 * mult + self.current_stats["flat_damage"])
 	print(dmg)
 	return dmg
