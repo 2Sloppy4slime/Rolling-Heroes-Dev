@@ -27,9 +27,9 @@ func generate_nav(bound1,bound2):
 		nav.append(["normal"])
 	nav.append(["normal","shop"])
 	nav.append(["boss"])
-	
+	var pos
 	for i in range(sallesspeciales):
-		var pos = randi_range(1,len(nav)-3)
+		pos = randi_range(1,len(nav)-3)
 		if len(nav[pos]) < 3 :
 			nav[pos].append("item")
 		
@@ -41,9 +41,10 @@ func generate_nav(bound1,bound2):
 		if len(nav[pos]) < 3 :
 			nav[pos].append("hard_skip")
 			
-		if randi_range(0,100) > 90 :
-			pos = nombre_salles/2
-			nav[pos].append("shop")
+	
+	if randi_range(0,100) > 90 :
+		pos = nombre_salles/2
+		nav[pos].append("shop")
 	return nav
 	
 	

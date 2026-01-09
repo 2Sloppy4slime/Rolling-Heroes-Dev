@@ -110,6 +110,8 @@ func select_item(list : Array, pool = "base") : # on met les pools dedans
 		if newlist[index].chance_by_pool[pool] > randi_range(0,100) :
 			chosen = true
 			print("algorithm chose : " + str(newlist[index]))
+			#on a pas assez d'items pour ça encore mais il faut retier l'item de la pool 
+		
 			return newlist[index]
 	print("error getting item, you should never ever see this btw")
 	return {}

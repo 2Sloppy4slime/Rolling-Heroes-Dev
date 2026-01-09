@@ -1,7 +1,8 @@
-[gd_scene load_steps=35 format=4 uid="uid://d4m22gwseevlt"]
+[gd_scene load_steps=36 format=4 uid="uid://d4m22gwseevlt"]
 
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_wflre"]
 [ext_resource type="PackedScene" uid="uid://fsfdv8ckeiyx" path="res://scenes/ball_spawner.tscn" id="2_xwrnc"]
+[ext_resource type="PackedScene" uid="uid://bqxlevybfeeon" path="res://scenes/basicenemy.tscn" id="3_wflre"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yemdt"]
 friction = 0.0
@@ -247,7 +248,7 @@ mesh = SubResource("CylinderMesh_tv6xk")
 shape = SubResource("CylinderShape3D_shq33")
 
 [node name="Bumper 2" type="StaticBody3D" parent="Flipper/obstacles"]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.0005168915, 0.20000002, -1.2224776)
+transform = Transform3D(1, 0, 0, 0, 0.9999999, 0, 0, 0, 0.9999999, 0.15562129, 0.20000002, -1.2224776)
 physics_material_override = SubResource("PhysicsMaterial_mbw2x")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Flipper/obstacles/Bumper 2"]
@@ -323,4 +324,12 @@ transform = Transform3D(1, 0, 0, 0, 0.9999998, -2.9802322e-07, 0, 2.9802322e-07,
 shape = SubResource("BoxShape3D_1pmx4")
 
 [node name="ball_spawn" parent="." instance=ExtResource("2_xwrnc")]
-transform = Transform3D(-2.8097144e-08, -3.3484866e-08, 0.99999994, -0.76604456, 0.64278764, 0, -0.6427877, -0.76604444, -4.3711385e-08, 1.1423056, -0.59686804, 2.2220306)
+transform = Transform3D(-0.24892111, -0.74269176, -0.6216487, -0.87410927, 0.44868845, -0.18604238, 0.41709885, 0.49707896, -0.7608816, 1.1423056, 0.46637756, -0.7611153)
+
+[node name="Basicenemy" parent="." instance=ExtResource("3_wflre")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.07858586, -0.41626006, 1.6278766)
+axis_lock_linear_x = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
