@@ -62,27 +62,21 @@ func _physics_process(delta: float) -> void:
 		
 func _input(event):
 	
-	if event.is_action_pressed("nudge_up"):
-		pass
-	if event.is_action_pressed("nudge_down"):
-		pass
-	if event.is_action_pressed("nudge_left"):
-		pass
-	if event.is_action_pressed("nudge_right"):
-		pass
+	if event.is_action_pressed("nudge_up") or event.is_action_pressed("nudge_down") or event.is_action_pressed("nudge_left") or event.is_action_pressed("nudge_right"):
+		if self.current_stats["Nudgeready"] :
+			nudge_func(event.is_action_pressed("nudge_up"), event.is_action_pressed("nudge_down"), event.is_action_pressed("nudge_left"), event.is_action_pressed("nudge_right"))
 		
-
-
-func print_bounced() : print("bounced")
 
 func onkillfunctions() :
 	for i in self.OG_STATS["on_kill_functions"]:
 		pass
 
-func nudge_func():
-	match current_stats["nudge_id"] :
+func nudge_func(up : bool,down : bool, left: bool, right : bool):
+	match current_stats["nudgeid"] :
 		0 : 
-			pass
+			# vector3 ( +x : right , -x : left, 0 , +z : down , -z : up)
+			var impulse = Vector3((int(right)-int(left)),0,(int(down)-int(up)))
+			self.apply_central_impulse(impulse)
 		1: #multiball : splits into 3 : 1 nudged (base) 1 stopped and 1 random pushed
 			pass
 		2: #shieldbreaker : breaks any shield on the field
@@ -93,7 +87,10 @@ func nudge_func():
 
 func damage_calc():
 	var speed = sqrt(linear_velocity.x * linear_velocity.x + linear_velocity.y * linear_velocity.y + linear_velocity.z * linear_velocity.z)
-	#mult = base mult + (max mult- base mult) * scale
+	#mult = base mult + (max mult- base mult) * scale(=0->1)
+	#XXXXXXXXXX[-Scale---]XXXXXX
+	#          Base      Max
+	
 	var mult = self.current_stats["base_damage_multiplier"] + (self.current_stats["max_damage_multiplier"] - self.current_stats["base_damage_multiplier"]) * (1 if speed >= 4 else speed/4)
 	var dmg = int(1 * mult + self.current_stats["flat_damage"])
 	print(dmg)

@@ -22,6 +22,22 @@ physics_material_override = SubResource("PhysicsMaterial_4bfup")
 continuous_cd = true
 linear_damp_mode = 1
 script = ExtResource("1_4bfup")
+OG_STATS = {
+"Canbreakshield": false,
+"Ismultiball": false,
+"Nudgeready": true,
+"base_damage_multiplier": 1,
+"base_points_multiplier": 1,
+"bounce_factor": 0.5,
+"currentpointstonudge": 0,
+"flat_damage": 1,
+"launch_speed": 10,
+"max_damage_multiplier": 2,
+"next_bounce_functions": [],
+"nudgeid": 0,
+"on_kill_functions": [],
+"pointstochargenudge": 100
+}
 
 [node name="sphere" type="MeshInstance3D" parent="."]
 transform = Transform3D(0.1, 0, 0, 0, 0.099999994, 0, 0, 0, 0.10000002, 0, 0, 0)

@@ -14,7 +14,7 @@ func spawnball(ismulti=false):
 
 func _input(event):
 	#à changer, pour test pour l'instant
-	if event.is_action_pressed("nudge_right"):
+	if event.is_action_pressed("accept_or_right_flipper"):
 		spawnball()
 		
 		
