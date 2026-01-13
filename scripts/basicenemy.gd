@@ -1,7 +1,7 @@
 extends RigidBody3D
 
 @export var health = 100
-@export var damage = 100 #multiply by smth figure it out later
+@export var atk_damage = 100 #multiply by smth figure it out later
 var Canmove = false
 var Canturn = false
 var statuslist = []# 0: gets killed on touch, bullseye 

@@ -48,9 +48,8 @@ func upgrade(id : int) : #ball upgrades are id 0-50 for now
 			print("no upgrades with this id")
 		
 func set_nudge(id:int) :
-	match id :
-		_:
-			print("no upgrades with this id")
+	ball.current_stats["nudgeid"]
+	
 func check_death():
 	if points < 0 or lives <= 0:
 		return true

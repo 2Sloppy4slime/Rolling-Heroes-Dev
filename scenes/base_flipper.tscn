@@ -1,8 +1,9 @@
-[gd_scene load_steps=35 format=4 uid="uid://d4m22gwseevlt"]
+[gd_scene load_steps=36 format=4 uid="uid://d4m22gwseevlt"]
 
 [ext_resource type="PackedScene" uid="uid://rg8ng4maolo3" path="res://scenes/base_sphere.tscn" id="2_wflre"]
 [ext_resource type="PackedScene" uid="uid://fsfdv8ckeiyx" path="res://scenes/ball_spawner.tscn" id="2_xwrnc"]
 [ext_resource type="PackedScene" uid="uid://bqxlevybfeeon" path="res://scenes/basicenemy.tscn" id="3_wflre"]
+[ext_resource type="PackedScene" uid="uid://hw4fqdgilhi1" path="res://scenes/base_sticker.tscn" id="4_yemdt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_yemdt"]
 friction = 0.0
@@ -184,6 +185,7 @@ transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0)
 mesh = SubResource("BoxMesh_wflre")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Flipper/LeftWall"]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0.0011394024, -0.0025756806, -0.0070767812)
 shape = SubResource("BoxShape3D_yemdt")
 
 [node name="rightwall" type="StaticBody3D" parent="Flipper" groups=["flipper wall"]]
@@ -323,3 +325,5 @@ axis_lock_linear_z = true
 axis_lock_angular_x = true
 axis_lock_angular_y = true
 axis_lock_angular_z = true
+
+[node name="RigidBody3D" parent="." instance=ExtResource("4_yemdt")]

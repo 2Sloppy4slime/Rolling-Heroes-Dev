@@ -33,7 +33,7 @@ func _ready():
 
 var last_bounce_list = []
 var current_bounce_list = []
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	for node in get_colliding_bodies():
 		var new_nbf = []
 		for i in range(current_stats["next_bounce_functions"].size()) :

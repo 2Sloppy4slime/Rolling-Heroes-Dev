@@ -18,7 +18,7 @@ roughness = 0.0
 [sub_resource type="SphereShape3D" id="SphereShape3D_75rr6"]
 radius = 0.5094606
 
-[node name="sphere" type="RigidBody3D"]
+[node name="sphere" type="RigidBody3D" groups=["ball"]]
 physics_material_override = SubResource("PhysicsMaterial_4bfup")
 continuous_cd = true
 linear_damp_mode = 1
