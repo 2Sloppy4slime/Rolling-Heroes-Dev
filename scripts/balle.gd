@@ -26,10 +26,11 @@ var current_stats = {}
 func _ready():
 	self.set_contact_monitor(true)
 	self.set_max_contacts_reported(5)
-	current_stats = OG_STATS
+	statsfromroot()
 	self.physics_material_override.bounce = current_stats["bounce_factor"]
 
-
+func statsfromroot():
+	current_stats = get_tree().root.current_ball_stats if get_tree().root.name == "ROOT" else OG_STATS
 
 var last_bounce_list = []
 var current_bounce_list = []

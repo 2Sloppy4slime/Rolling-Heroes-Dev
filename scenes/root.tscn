@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bbmoc4vgmd513" path="res://scenes/shop_menu.tscn" id="6_kycxp"]
 [ext_resource type="Script" uid="uid://coj6c307tysec" path="res://scripts/navigation_manager.gd" id="7_j287u"]
 
-[node name="Root" type="Node3D"]
+[node name="ROOT" type="Node3D"]
 script = ExtResource("1_sqa0i")
 
 [node name="Sprite3D" type="Sprite3D" parent="."]
@@ -30,3 +30,5 @@ script = ExtResource("5_jh1ax")
 
 [node name="navigation_manager" type="Node" parent="."]
 script = ExtResource("7_j287u")
+
+[node name="Bar" type="Node" parent="."]

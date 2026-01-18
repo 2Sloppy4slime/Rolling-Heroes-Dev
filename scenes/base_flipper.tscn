@@ -75,6 +75,7 @@ friction = 0.0
 bounce = 1.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_84xgc"]
+bounce = 1.0
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_nmyrp"]
 size = Vector3(0.64, 0.16, 0.64)
@@ -327,3 +328,4 @@ axis_lock_angular_y = true
 axis_lock_angular_z = true
 
 [node name="RigidBody3D" parent="." instance=ExtResource("4_yemdt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.076192796, 0.2625986)
